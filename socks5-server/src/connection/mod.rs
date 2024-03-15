@@ -99,6 +99,9 @@ impl<A> IncomingConnection<A, state::NeedCommand> {
             ProtocolCommand::Connect => {
                 Ok(Command::Connect(Connect::new(self.stream), req.address))
             }
+            ProtocolCommand::Padding => {
+                Ok(Command::Connect(Connect::new(self.stream), req.address))
+            }
         }
     }
 }
